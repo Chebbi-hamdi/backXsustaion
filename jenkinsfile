@@ -1,0 +1,61 @@
+// pipline{
+//     agent any
+//     stages{
+       
+//         stage('Test'){
+//             steps{
+//                 sh 'npm install'
+//                 sh 'npm test'
+//                 echo 'Testing the project'
+//             }
+//         }
+//          stage('Build'){
+//             steps{
+//                 sh 'npm run build'
+//                 echo 'Building the project'
+//             }
+//         }
+       
+//     }
+// }
+
+
+pipeline {
+    agent any
+
+    environment {
+        DOCKER_IMAGE = 'node:18.15.0' // Define the Docker image to use
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/xsustain-company/xsustain-backend.git', branch: 'hamdiDev'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                script {
+                    // Build the Docker image using the Dockerfile in the repository root
+                    bat 'docker build -t %DOCKER_IMAGE% .'
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Add test steps here
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                script {
+                    // Run the Docker container
+                    bat 'docker run -d -p 5000:5000 %DOCKER_IMAGE%'
+                }
+            }
+        }
+    }
+}
