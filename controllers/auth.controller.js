@@ -174,8 +174,8 @@ const handleGoogleSuccess = (req, res) => {
   // console.log("req.user----------:",req.user);
   const token = generateJWT(req.user);
   // res.status(200).json({ token });
-  // res.redirect(`http://localhost:3001/redGoogle?token=${token}`);
-  res.redirect(`http://192.168.11.113:3001/redGoogle?token=${token}`);
+  res.redirect(`http://localhost:3001/redGoogle?token=${token}`);
+  // res.redirect(`http://192.168.11.113:3001/redGoogle?token=${token}`);
 };
 
 /**
@@ -219,8 +219,8 @@ scope: ["email", "profile"],
 });
 
 const linkedinCallback = passport.authenticate("linkedin", {
-  // failureRedirect: "http://localhost:3001/sign_in",
-  failureRedirect: "http://192.168.11.113:3001/sign_in",
+  failureRedirect: "http://localhost:3001/sign_in",
+  // failureRedirect: "http://192.168.11.113:3001/sign_in",
 });
 
 const handleLinkedinSuccess = (req, res) => {
@@ -232,8 +232,8 @@ const handleLinkedinSuccess = (req, res) => {
 
 
  console.log('-------------------------------',token);
-  res.redirect(`http://192.168.11.113:3001/redLinkedin?token=${token}`);
-  // res.redirect(`http://localhost:3001/redFacebook?token=${token}`);
+  // res.redirect(`http://192.168.11.113:3001/redLinkedin?token=${token}`);
+  res.redirect(`http://localhost:3001/redFacebook?token=${token}`);
 };
 
 module.exports = {

@@ -54,7 +54,7 @@ const deleteSubSubtaskById = async (req, res) => {
 };
 const updateImg = async (req, res) => {
     try {
-        const imagePath = "http://192.168.11.113:3000/images/" + req.file.filename;
+        const imagePath = "http://localhost:3000/images/" + req.file.filename;
 
       const { subSubtaskId } = req.params;
       const updatedSubSubtask = await SubSubtask.findByIdAndUpdate(

@@ -42,7 +42,7 @@ const getSubtaskById = async (req, res) => {
 const updateSubtask = async (req, res) => {
   try {
     const { subtaskId } = req.params;
-    const imagePath = "http://192.168.11.113:3000/images/" + req.file.filename;
+    const imagePath = "http://localhost:3000/images/" + req.file.filename;
 
     const subtaskData = req.body;
     const updatedSubtask = await SubtaskType.findByIdAndUpdate(subtaskId, { image:imagePath }, { new: true });

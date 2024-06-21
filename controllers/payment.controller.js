@@ -8,8 +8,8 @@ const Add = async (req, res) => {
     amount: req.body.amount,
     accept_card: "true",
     session_timeout_secs: 1200,
-    success_link: "http://192.168.11.113:3001/success?amount=" + req.body.amount,
-    fail_link: "http://192.168.11.113:3001/fail",
+    success_link: "http://localhost:3001/success?amount=" + req.body.amount,
+    fail_link: "http://localhost:3001/fail",
     developer_tracking_id: "0578e8d0-ef12-4f83-b051-9a7bf43d3431",
   };
   try {

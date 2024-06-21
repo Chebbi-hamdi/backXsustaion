@@ -59,7 +59,7 @@ const getTaskTypeById = async (req, res) => {
 
 const AddPicTotaskType = async (req, res) => {
     try {
-        const imagePath = "http://192.168.11.113:3000/images/" + req.file.filename;
+        const imagePath = "http://localhost:3000/images/" + req.file.filename;
 
 
         const updatePic = await TaskType.findByIdAndUpdate(req.params.id,{image:imagePath});

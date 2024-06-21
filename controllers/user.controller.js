@@ -51,7 +51,7 @@ async function requestPasswordReset(req, res) {
       await user.save();
 console.log('_____________',email)
       // Send the password reset email
-      const resetLink = `http://192.168.11.113:3001/forgot_password/${resetToken}`;
+      const resetLink = `http://localhost:3001/forgot_password/${resetToken}`;
       await sendEmail(
       email,
       "Password Reset Request",
@@ -95,7 +95,7 @@ try {
     await user.save();
 
     // Send the verification email
-    const verificationLink = `http://192.168.11.113:3000/api/v0/users/verify-email/${verificationToken}`;
+    const verificationLink = `http://localhost:3000/api/v0/users/verify-email/${verificationToken}`;
     console.log('rrrrrr',verificationToken)
     await sendEmail(
      email,
@@ -131,7 +131,7 @@ async function verifyEmail(req, res) {
       await user.save();
 
       // Redirect to the profile page after successful verification
-      res.redirect('http://192.168.11.113:3001/profile');
+      res.redirect('http://localhost:3001/profile');
   } catch (error) {
       console.error("Error verifying email:", error);
       res.status(500).json({ message: "Internal server error" });
@@ -195,7 +195,7 @@ try {
 
 async function updateProfilePic(req, res) {
 try {
-    const imagePath = "http://192.168.11.113:3000/images/" + req.file.filename;
+    const imagePath = "http://localhost:3000/images/" + req.file.filename;
 
     const user_id = req.user._id;
     // Find the user with the provided ID

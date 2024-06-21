@@ -485,7 +485,7 @@ console.log(newTask);
 
       // Assuming there's only one file uploaded
       const file = req.files[0];
-      const imagePath = `http://192.168.11.113:3000/images/${file.filename}`;
+      const imagePath = `http://localhost:3000/images/${file.filename}`;
       const Title = file.filename;
       console.log("----------------------------------", imagePath);
       console.log("1");
@@ -535,7 +535,7 @@ console.log(newTask);
 
       // Construct an array of file paths from the uploaded files
       const filePaths = req.files.map(
-        (file) => "http://192.168.11.113:3000/images/" + file.filename
+        (file) => "http://localhost:3000/images/" + file.filename
       );
       console.log("Uploaded files:", req.files);
 
@@ -841,7 +841,7 @@ console.log(newTask);
       const { message } = req.body;
       const files = req.files
         ? req.files.map(
-            (file) => "http://192.168.11.113:3000/images/" + file.filename
+            (file) => "http://localhost:3000/images/" + file.filename
           )
         : undefined;
       console.log("Uploaded files:", req.files);

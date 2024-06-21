@@ -97,7 +97,7 @@ async function deleteTeam(req, res, next) {
       
       const tokenTeam = generateTeamJWT(getTeam._id);
       const tokenValues = await getTokenValues1(tokenTeam);
-      const link = `http://192.168.11.113:3001/sign_up/?tokenteam=${tokenTeam}`;
+      const link = `http://localhost:3001/sign_up/?tokenteam=${tokenTeam}`;
   
       sendEmail(email, "Rejoindre l'équipe", `Cliquez sur ce lien pour rejoindre l'équipe : ${link}`);
   

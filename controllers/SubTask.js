@@ -272,7 +272,7 @@ addFiletoTask: async (req, res) => {
     console.log('TaskId:', TaskId);
 
     // Construct an array of image paths from the uploaded files
-    const imagePaths = req.files.map(file => "http://192.168.11.113:3000/images/" + file.filename);
+    const imagePaths = req.files.map(file => "http://localhost:3000/images/" + file.filename);
     console.log('Uploaded files:', req.files);
 
     // Find the task with the provided ID and update the imagePaths
@@ -301,7 +301,7 @@ addFiletoCommentTask : async (req, res) => {
     }
 
     // Construct an array of file paths from the uploaded files
-    const filePaths = req.files.map(file => "http://192.168.11.113:3000/images/" + file.filename);
+    const filePaths = req.files.map(file => "http://localhost:3000/images/" + file.filename);
     console.log('Uploaded files:', req.files);
 
     // Create new task comment with file(s) and save it
@@ -486,7 +486,7 @@ updateTaskComment: async (req, res) => {
   try {
     const { commentId } = req.params;
     const { message } = req.body;
-    const files = req.files ? req.files.map(file => "http://192.168.11.113:3000/images/" + file.filename) : undefined;
+    const files = req.files ? req.files.map(file => "http://localhost:3000/images/" + file.filename) : undefined;
     console.log('Uploaded files:', req.files);
 
     // Find the task comment by ID

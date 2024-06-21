@@ -19,11 +19,11 @@ dotenv.config();
 passport.use(
   new GoogleStrategy(
     {
-      clientID:process.env.GOOGLE_CLIENT_ID,
+      clientID: process.env.GOOGLE_CLIENT_ID,
         
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      // callbackURL: "http://localhost:3000/api/v0/auth/google/callback",
-      callbackURL: "http://192.168.11.113:3000/api/v0/auth/google/callback",
+      callbackURL: "http://localhost:3000/api/v0/auth/google/callback",
+      // callbackURL: "http://192.168.11.113:3000/api/v0/auth/google/callback",
       scope: [
         "profile",
         "email",
@@ -169,8 +169,8 @@ passport.use(
     {
       clientID: process.env.LINKEDIN_KEY,
       clientSecret: process.env.LINKEDIN_SECRET,
-      // callbackURL: "http://localhost:3000/api/v0/auth/linkedin/callback",
-      callbackURL: "http://192.168.11.113:3000/api/v0/auth/linkedin/callback",
+      callbackURL: "http://localhost:3000/api/v0/auth/linkedin/callback",
+      // callbackURL: "http://192.168.11.113:3000/api/v0/auth/linkedin/callback",
 
       scope: ["email", "profile", "openid"],
     },

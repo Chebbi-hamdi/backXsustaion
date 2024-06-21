@@ -183,8 +183,8 @@ const getProject = async (req, res) => {
           if (!file) {
             return res.status(400).json({ message: "No file uploaded" });
           }
-          // const imagePath = "http://localhost:3000/images/" + req.file.filename;
-          const imagePath = "http://192.168.11.113:3000/images/" + req.file.filename;
+          const imagePath = "http://localhost:3000/images/" + req.file.filename;
+          // const imagePath = "http://192.168.11.113:3000/images/" + req.file.filename;
       
           console.log(imagePath);
           res.status(200).json({ imagePath });

@@ -25,8 +25,8 @@ async function ReferAfriend(req, res, next) {
     }
 
     const tokenReference = generateRefFriendJWT(user);
-    // const link = `http://localhost:3001/sign_up/?tokenRef=${tokenReference}`;
-    const link = `http://192.168.11.113:3001/sign_up/?tokenRef=${tokenReference}`;
+    const link = `http://localhost:3001/sign_up/?tokenRef=${tokenReference}`;
+    // const link = `http://192.168.11.113:3001/sign_up/?tokenRef=${tokenReference}`;
 
     await sendEmail(
       email,
@@ -46,8 +46,8 @@ async function GenLinkRef(req, res, next) {
     const user = req.user._id;
 
     const tokenReference = generateRefFriendJWT(user);
-    // const link = `localhost:3001/sign_up/?tokenRef=${tokenReference}`;
-    const link = `192.168.11.113:3001/sign_up/?tokenRef=${tokenReference}`;
+    const link = `localhost:3001/sign_up/?tokenRef=${tokenReference}`;
+    // const link = `192.168.11.113:3001/sign_up/?tokenRef=${tokenReference}`;
 
     return res.status(200).json({ link });
   } catch (error) {
